@@ -65,7 +65,7 @@ export default {
     }
   },
   head(){
-    let description = this.stripTags(this.data.description) // strip tags from rich text field and use for meta descriptions and truncate for the googs
+    let description = this.stripTags('Here is a demo title') // strip tags from rich text field and use for meta descriptions and truncate for the googs
     description = this.trim(description, 152, true);
     return{
       title: this.data.title + ' | Rob Erskine',
