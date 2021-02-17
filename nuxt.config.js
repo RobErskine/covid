@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'viget-test',
+    title: 'cdc data api',
     htmlAttrs: {
       lang: 'en'
     },
@@ -17,7 +17,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href:'https://fonts.gstatic.com'},
       { rel: 'preload', href:'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap', as:'style', onload: 'this.onload=null;this.rel=\'stylesheet\''},
-      { rel: 'icon', href:'https://www.viget.com/favicon.ico', type: 'image/x-icon'}
     ]
   },
 
