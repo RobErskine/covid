@@ -33,16 +33,41 @@ exports.handler = async (event, context) => {
       mergedArray = [];
 
       for(var i = 0; i < array1.length; i++){
-        console.log(array1[i]);
+        console.log(array1[i]['Location']);
 
-        mergedArray.push({
-          'name': array1[i]['Location']
-        })
+        for(var j = 0; j < array2.length; j++){
+          console.log(array1[i]['Location'], array2[j]['abbr']);
 
-        for(var j = 0; j < mergedArray.length; j++){
-          if(mergedArray[j]['name'] == array2['abbr']){
-            console.log('wow')
+          if(array1[i]['Location'] == array2[j]['abbr']){
+            mergedArray.push({
+              'id' : array2[j]['id'],
+              'name': array1[i]['Location'],
+              'location': array1[i]['LongName'],
+              'updated': array1[i]['Date'],
+              
+              // loop over all of array 2
+              'total_cases': array2[j]['tot_cases'],
+              'cases_last_24h': array2[j]['tot_cases_last_24_hours'],
+              'cases_last_24h': array2[j]['tot_cases_last_24_hours'],
+              'cases_last_7d': array2[j]['new_cases07'],
+              'deaths_new_7d': array2[j]['new_deaths07'],
+              'deaths_new_24h': array2[j]['tot_death_last_24_hours'],
+              'deaths_total': array2[j]['tot_death'],
+              'death_per_100k': array2[j]['death_100k'],
+              '7day_avg_cases_per_100k': array2[j]['Seven_day_avg_new_cases_per_100k'],
+              '7day_avg_deaths_per_100k': array2[j]['Seven_day_avg_new_deaths_per_100k'],
+
+              // loop over all of array 1
+              'population': array1[i]['Census2019'],
+              'doses_distributed': array1[i]['Doses_Distributed'],
+              'doses_administered': array1[i]['Doses_Administered'],
+              //''
+            })
           }
+          
+          // if(mergedArray[j]['name'] == array2['abbr']){
+          //   console.log('wow')
+          // }
         }
       }
 
