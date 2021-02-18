@@ -1,9 +1,11 @@
 const fetch = require('node-fetch')
 
 exports.handler = async (event, context) => {
-  var response = await fetch('https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data')
-  if(response.ok){
-    var json = await response.json();
+  var vaccinaData = await fetch('https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data')
+  if(vaccinaData.ok){
+    var json = await vaccinaData.json();
+
+    json = json['vaccination_data'];
 
     return {
       statusCode: 200,
