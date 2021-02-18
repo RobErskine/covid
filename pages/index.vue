@@ -1,37 +1,29 @@
 <template>
-  <div>
-    <div v-for="data in data.data" :key="data.Location">
-      {{data.Location}}
-    </div>
-    <!-- <hero :image="data.image">
-      <h1>{{data.title}}</h1>
-      <div v-html="data.description"></div>
-      <p>
-        <cta link="work" hidden="View our " copy="Recent Work" variant="primary" arrow="true"/>
-      </p>
-    </hero>
-
-    <tabs label="Front-end dev offerings">
-      <tab v-for="(tab,i) in data.tabs"
-        :title="tab.title"
-        :key="tab.id"
-        :id="tab.id"
+  <div class="p-2">
+    <ul class="flex flex-wrap justify-between">
+      <li v-for="data in data.data" :key="data.Location"
+        class="p-8 br-4 bg-blue-50"
       >
-        <span v-html="tab.copy"></span>
-      </tab>
-    </tabs>
+        <h2>{{data.LongName}}</h2>
+        <!-- todo: convert each of these <p>s into a component -->
+        <!-- total pop -->
+        <p v-if="data.Census2019">Total People*: <number :val="data.Census2019"/></p>
+        <p v-if="data.Doses_Distributed">Total Doses Distributed: <number :val="data.Doses_Distributed"/></p>
+        <br/>
 
-    <cards title="Other Capabilities">
-      <card 
-        v-for="(card,i) in data.cards"
-        :key="card.title"
-        :title="card.title"
-        :lede="card.lede"
-        :destination="card.link"
-      >
-        <span v-html="card.copy"></span>
-      </card>
-    </cards> -->
+        <!-- dose 1-->
+        <p v-if="data.Administered_Dose1">People with 1st dose: <number :val="data.Administered_Dose1"/></p>
+        <p v-if="data.Administered_Dose1_Pop_Pct">% with 1st dose: {{data.Administered_Dose1_Pop_Pct}}%</p>
+        <br/>
+
+        <!-- dose 2 -->
+        <p v-if="data.Administered_Dose2">People with 2nd dose: <number :val="data.Administered_Dose2"/></p>
+        <p v-if="data.Administered_Dose2_Pop_Pct">% with 2nd dose: {{data.Administered_Dose2_Pop_Pct}}%</p>
+
+        <!-- Total cases -->
+        <p v-if="data.tot_cases_last_24_hours"> <number :val="data.tot_cases_last_24_hours"/></p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -45,7 +37,7 @@ export default {
   },
   async fetch(){
     // pretend data is from an external source
-    this.data = await fetch('https://cdc-api.netlify.app/.netlify/functions/data').then(res=>res.json())
+    this.data = await fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/data',{mode:'no-cors'}).then(res=>res.json())
   },
   methods:{
     stripTags(code){
