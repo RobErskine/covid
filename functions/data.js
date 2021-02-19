@@ -33,10 +33,8 @@ exports.handler = async (event, context) => {
       mergedArray = [];
 
       for(var i = 0; i < array1.length; i++){
-        console.log(array1[i]['Location']);
 
         for(var j = 0; j < array2.length; j++){
-          console.log(array1[i]['Location'], array2[j]['abbr']);
 
           if(array1[i]['Location'] == array2[j]['abbr']){
             let populationInfected = parseFloat(((array2[j]['tot_cases'] / array1[i]['Census2019']) * 100).toFixed(2));
@@ -46,6 +44,7 @@ exports.handler = async (event, context) => {
               'name': array1[i]['Location'],
               'location': array1[i]['LongName'],
               'updated': array1[i]['Date'],
+              'population_infected_pct': populationInfected,
               
               // loop over all of array 2
               'total_cases': array2[j]['tot_cases'],
@@ -55,7 +54,7 @@ exports.handler = async (event, context) => {
               'deaths_new_7d': array2[j]['new_deaths07'],
               'deaths_new_24h': array2[j]['tot_death_last_24_hours'],
               'deaths_total': array2[j]['tot_death'],
-              'death_per_100k': array2[j]['death_100k'],
+              'deaths_per_100k': array2[j]['death_100k'],
               '7day_avg_cases_per_100k': array2[j]['Seven_day_avg_new_cases_per_100k'],
               '7day_avg_deaths_per_100k': array2[j]['Seven_day_avg_new_deaths_per_100k'],
 
@@ -67,13 +66,8 @@ exports.handler = async (event, context) => {
               'dose2': array1[i]['Administered_Dose2'],
               'dose1_population_pct': array1[i]['Administered_Dose1_Pop_Pct'],
               'dose2_population_pct': array1[i]['Administered_Dose2_Pop_Pct'],
-              'population_infected_pct': populationInfected
             })
           }
-          
-          // if(mergedArray[j]['name'] == array2['abbr']){
-          //   console.log('wow')
-          // }
         }
       }
 
