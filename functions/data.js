@@ -39,6 +39,8 @@ exports.handler = async (event, context) => {
           console.log(array1[i]['Location'], array2[j]['abbr']);
 
           if(array1[i]['Location'] == array2[j]['abbr']){
+            let populationInfected = parseFloat(((array2[j]['tot_cases'] / array1[i]['Census2019']) * 100).toFixed(2));
+
             mergedArray.push({
               'id' : array2[j]['id'],
               'name': array1[i]['Location'],
@@ -64,7 +66,8 @@ exports.handler = async (event, context) => {
               'dose1': array1[i]['Administered_Dose1'],
               'dose2': array1[i]['Administered_Dose2'],
               'dose1_population_pct': array1[i]['Administered_Dose1_Pop_Pct'],
-              'dose2_population_pct': array1[i]['Administered_Dose2_Pop_Pct']
+              'dose2_population_pct': array1[i]['Administered_Dose2_Pop_Pct'],
+              'population_infected_pct': populationInfected
             })
           }
           
