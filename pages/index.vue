@@ -42,6 +42,7 @@ export default {
   name: "Homepage",
   data(){
     return{
+      usa: [],
       states: [],
       deaths: true,
       vaccines: true 
@@ -49,7 +50,8 @@ export default {
   },
   async fetch(){
     // pretend data is from an external source
-    this.states = await fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/data',{mode:'no-cors'}).then(res=>res.json())
+    this.states = await fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/states',{mode:'no-cors'}).then(res=>res.json())
+    this.usa = await fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/usa',{mode:'no-cors'}).then(res=>res.json())
   },
   methods:{
     toggleDeaths(){
