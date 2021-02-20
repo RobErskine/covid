@@ -1,5 +1,5 @@
 <template>
-  <span>{{prettyVal}}</span>  
+  <span class="font-serif">{{prettyVal}}<span v-if="percentage">%</span></span>  
 </template>
 
 <script>
@@ -7,11 +7,12 @@ export default {
   name: 'number',
   data() {
     return {
-      prettyVal: 0
+      prettyVal: 0,
     }
   },
   props: {
-    'val':0
+    'val':0,
+    'percentage': false
   },
   mounted() {
     this.prettyVal = this.numberWithCommas(this.val)
