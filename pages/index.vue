@@ -1,32 +1,36 @@
 <template>
-  <div class="p-2">
+  <div class="p-2" :class="`showdeath-`+ this.death">
+    <div>
+      <button>Toggle Death Info</button>
+      <button>Toggle Vaccine Info</button>
+    </div>
     <ul class="flex flex-wrap justify-between">
       <li v-for="data in states.data" :key="data.Location"
-        class="p-2 md:p-8 br-4 bg-gray-lightest max-w-md w-full"
+        class="p-2 rounded-2xl md:p-8 br-4 bg-gray-lightest w-full md:w-1/2 lg:w-1/3 xl:w-1/4 transform scale-95 mb-0"
       >
-        <h2>{{data.location}}</h2>
+        <h2 class="text-center">{{data.location}}</h2>
         <!-- todo: convert each of these <p>s into a component -->
         <!-- total pop --> 
         <row topic="basic" class="mb-2 border-gray-light border-b-2">
           <item v-if="data.population" label="Population" :value="data.population" />
           <item v-if="data.total_cases" label="Total Cases" :value="data.total_cases"/>
-          <item v-if="data.population_infected_pct" label="Population Infected" :value="data.population_infected_pct" percentage="true"/>
+          <item v-if="data.population_infected_pct" label="Cases / Population" :value="data.population_infected_pct" percentage="true"/>
         </row>
 
-        <row topic="Deaths" v-if="data.deaths_total || data.deaths_per_100k || data.deaths_new_7d" class="mb-2 border-gray-light border-b-2">
+        <row topic="Deaths" v-if="data.deaths_total || data.deaths_per_100k || data.deaths_new_7d && data.death" class="mb-2 border-gray-light border-b-2">
           <item v-if="data.deaths_total" label="Total Deaths" :value="data.deaths_total" />
           <item v-if="data.deaths_per_100k" label="Deaths/100k" :value="data.deaths_per_100k"/>
-          <item v-if="data.deaths_new_7d" label="Deaths last 7 days" :value="data.deaths_new_7d"/>
+          <item v-if="data.deaths_new_7d" label="Deaths Last Week" :value="data.deaths_new_7d"/>
         </row>
 
-        <row topic="Vaccines">
-          <item v-if="data.doses_distributed" label="Doses Distributed:" :value="data.doses_distributed"/>
-          <item v-if="data.doses_administered" label="Administered:" :value="data.doses_administered"/>
-          <item v-if="data.doses_administered" label="In Storage:" :value="data.doses_administered"/>
+        <row topic="Vaccines" >
+          <item class="pb-4" v-if="data.doses_distributed" label="Doses Distributed" :value="data.doses_distributed"/>
+          <item v-if="data.doses_administered" label="Administered" :value="data.doses_administered"/>
+          <item v-if="data.doses_storage" label="Storage" :value="data.doses_storage"/>
           <hr>
-          <item v-if="data.doses_administered" label="Dos:" :value="data.doses_administered"/>
-          <item v-if="data.doses_administered" label="In Storage:" :value="data.doses_administered"/>
-          <item v-if="data.doses_administered" label="In Storage:" :value="data.doses_administered"/>
+          <item v-if="data.dose1_population_pct" label="1st Dose %" :value="data.dose1_population_pct" percentage="true"/>
+          <item v-if="data.dose1_population_pct" label="2nd Dose %w" :value="data.dose1_population_pct" percentage="true"/>
+          <item v-if="data.dose2" label="Fully Vaccinated" :value="data.dose2" />
         </row>
       </li>
     </ul>
@@ -38,7 +42,13 @@ export default {
   name: "Homepage",
   data(){
     return{
-      states: []
+      states: [],
+      death: true,
+      vaccines: true 
+    }
+  },
+  methods: {
+    toggleDeath(){
     }
   },
   async fetch(){
