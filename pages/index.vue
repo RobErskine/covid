@@ -1,8 +1,8 @@
 <template>
-  <div class="p-2" :class="`showdeath-`+ this.death">
+  <div class="p-2">
     <div>
-      <button>Toggle Death Info</button>
-      <button>Toggle Vaccine Info</button>
+      <button @click="toggleDeaths()">Toggle Death Info</button>
+      <button @click="toggleVaccines()">Toggle Vaccine Info</button>
     </div>
     <ul class="flex flex-wrap justify-between">
       <li v-for="data in states.data" :key="data.Location"
@@ -17,19 +17,19 @@
           <item v-if="data.population_infected_pct" label="Cases / Population" :value="data.population_infected_pct" percentage="true"/>
         </row>
 
-        <row topic="Deaths" v-if="data.deaths_total || data.deaths_per_100k || data.deaths_new_7d && data.death" class="mb-2 border-gray-light border-b-2">
+        <row topic="Deaths" v-if="(data.deaths_total || data.deaths_per_100k || data.deaths_new_7d) && deaths" class="mb-2 border-gray-light border-b-2">
           <item v-if="data.deaths_total" label="Total Deaths" :value="data.deaths_total" />
           <item v-if="data.deaths_per_100k" label="Deaths/100k" :value="data.deaths_per_100k"/>
           <item v-if="data.deaths_new_7d" label="Deaths Last Week" :value="data.deaths_new_7d"/>
         </row>
 
-        <row topic="Vaccines" >
+        <row topic="Vaccines" v-if="vaccines">
           <item class="pb-4" v-if="data.doses_distributed" label="Doses Distributed" :value="data.doses_distributed"/>
           <item v-if="data.doses_administered" label="Administered" :value="data.doses_administered"/>
           <item v-if="data.doses_storage" label="Storage" :value="data.doses_storage"/>
           <hr>
           <item v-if="data.dose1_population_pct" label="1st Dose %" :value="data.dose1_population_pct" percentage="true"/>
-          <item v-if="data.dose1_population_pct" label="2nd Dose %w" :value="data.dose1_population_pct" percentage="true"/>
+          <item v-if="data.dose1_population_pct" label="2nd Dose %" :value="data.dose1_population_pct" percentage="true"/>
           <item v-if="data.dose2" label="Fully Vaccinated" :value="data.dose2" />
         </row>
       </li>
@@ -43,12 +43,8 @@ export default {
   data(){
     return{
       states: [],
-      death: true,
+      deaths: true,
       vaccines: true 
-    }
-  },
-  methods: {
-    toggleDeath(){
     }
   },
   async fetch(){
@@ -56,6 +52,20 @@ export default {
     this.states = await fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/data',{mode:'no-cors'}).then(res=>res.json())
   },
   methods:{
+    toggleDeaths(){
+      if(this.deaths == true){
+        this.deaths = false
+      } else {
+        this.deaths = true
+      }
+    },
+    toggleVaccines(){
+      if(this.vaccines == true){
+        this.vaccines = false
+      } else {
+        this.vaccines = true
+      }
+    },
     stripTags(code){
       return code.replace(/<\/?[^>]+>/ig, "")
     },
