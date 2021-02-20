@@ -29,6 +29,8 @@ exports.handler = async (event, context) => {
       //instead of returning merge into one
       array1 = data[0]['vaccination_data'];
       array2 = data[1]['US_MAP_DATA'];
+      const update = data[1]['CSVInfo']['update'],
+            disclaimer = data[1]['CSVInfo']['disclaimer'];
 
       mergedArray = [];
 
@@ -37,7 +39,7 @@ exports.handler = async (event, context) => {
         // loop over second request (us map data)
         for(var j = 0; j < array2.length; j++){
           // merge two endpoints together where the name is USA
-          if(array1[i]['Location'] == 'USA' && array2[j]['abbr'] == 'USA'){
+          if(array1[i]['ShortName'] == 'USA' && array2[j]['abbr'] == 'USA'){
             let populationInfected = parseFloat(((array2[j]['tot_cases'] / array1[i]['Census2019']) * 100).toFixed(2));
 
             // recreate our array
@@ -47,6 +49,8 @@ exports.handler = async (event, context) => {
               'location': array1[i]['LongName'],
               'updated': array1[i]['Date'],
               'population_infected_pct': populationInfected,
+              'disclaimer': disclaimer,
+              'update': update,
               
               // loop over all of array 2
               'total_cases': array2[j]['tot_cases'],
@@ -59,6 +63,8 @@ exports.handler = async (event, context) => {
               'deaths_per_100k': array2[j]['death_100k'],
               '7day_avg_cases_per_100k': array2[j]['Seven_day_avg_new_cases_per_100k'],
               '7day_avg_deaths_per_100k': array2[j]['Seven_day_avg_new_deaths_per_100k'],
+              'total_cases_last_24h': array2[j]['tot_cases_last_24_hours'],
+              'total_deaths_last_24': array2[j]['tot_death_last_24_hours'],
 
               // loop over all of array 1
               'population': array1[i]['Census2019'],
@@ -82,7 +88,7 @@ exports.handler = async (event, context) => {
   return {
     statusCode: 200,
     body: JSON.stringify({
-      data: data
+      data: data[0]
     })
   }
 }
