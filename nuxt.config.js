@@ -16,7 +16,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href:'https://fonts.gstatic.com'},
-      { rel: 'preload', href:'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap', as:'style', onload: 'this.onload=null;this.rel=\'stylesheet\''},
+      { rel: 'preload', href:'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Nunito+Sans:wght@400;700&display=swap', as:'style', onload: 'this.onload=null;this.rel=\'stylesheet\''},
     ]
   },
 

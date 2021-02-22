@@ -9,7 +9,6 @@
 html {
   font-size: 16px;
   font-family:theme('fonts.sans');
-  word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -41,11 +40,11 @@ h1,h2,h3,h4,h5,h6,li,p{
 
 p{
   font-size:1.1em;
-  line-height:1.66;
+  line-height:1.375;
 }
 
 h1,.h1{
-  font-size:2.5em;
+  font-size:2.2em;
   line-height:0.9;
 }
 
@@ -79,7 +78,7 @@ h5,.h5,h6,.h6{
 
 @media all and (min-width: 700px){
   h1{
-    font-size:4.375em;
+    font-size:2.75em;
   }
 }
 

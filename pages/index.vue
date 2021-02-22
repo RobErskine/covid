@@ -1,12 +1,15 @@
 <template>
   <div class="p-2">
-    <div>
-      <button @click="toggleDeaths()">Toggle Death Info</button>
-      <button @click="toggleVaccines()">Toggle Vaccine Info</button>
-    </div>
+    <hero :data="usa.data"/>
+    <nav>
+      <div>
+        <button @click="toggleDeaths()">Toggle Death Info</button>
+        <button @click="toggleVaccines()">Toggle Vaccine Info</button>
+      </div>
+    </nav>
     <ul class="flex flex-wrap justify-between">
       <li v-for="data in states.data" :key="data.Location"
-        class="p-2 rounded-2xl md:p-8 br-4 bg-gray-lightest w-full md:w-1/2 lg:w-1/3 xl:w-1/4 transform scale-95 mb-0"
+        class="p-2 pt-4 lg:pt-3 lg:pb-2 rounded-2xl md:p-8 br-4 bg-gray-lightest w-full md:w-1/2 lg:w-1/3 xl:w-1/4 transform scale-95 mb-0"
       >
         <h2 class="text-center">{{data.location}}</h2>
         <!-- todo: convert each of these <p>s into a component -->
@@ -29,7 +32,7 @@
           <item v-if="data.doses_storage" label="Storage" :value="data.doses_storage"/>
           <hr>
           <item v-if="data.dose1_population_pct" label="1st Dose %" :value="data.dose1_population_pct" percentage="true"/>
-          <item v-if="data.dose1_population_pct" label="2nd Dose %" :value="data.dose1_population_pct" percentage="true"/>
+          <item v-if="data.dose2_population_pct" label="2nd Dose %" :value="data.dose2_population_pct" percentage="true"/>
           <item v-if="data.dose2" label="Fully Vaccinated" :value="data.dose2" />
         </row>
       </li>

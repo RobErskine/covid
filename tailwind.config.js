@@ -22,9 +22,9 @@ module.exports = {
           dark: '#333'
         }
       },
-      fonts: {
+      fontFamily: {
         sans: ['Nunito Sans', 'sans-serif'],
-        serif: ['Georgia']
+        serif: ['Montserrat','Georgia']
       },
     },
   },

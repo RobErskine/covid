@@ -1,5 +1,5 @@
 <template>
-  <div class="row py-2 flex flex-wrap justify-between" :class="topic">
+  <div class="row flex flex-wrap justify-between" :class="topic">
     <slot></slot>
   </div>
 </template>
