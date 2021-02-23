@@ -60,8 +60,9 @@ exports.handler = async (event, context) => {
               'deaths_new_24h': array2[j]['tot_death_last_24_hours'],
               'deaths_total': array2[j]['tot_death'],
               'deaths_per_100k': array2[j]['death_100k'],
-              '7day_avg_cases_per_100k': array2[j]['Seven_day_avg_new_cases_per_100k'],
-              '7day_avg_deaths_per_100k': array2[j]['Seven_day_avg_new_deaths_per_100k'],
+              'avg_cases_per_100k_7d': array2[j]['Seven_day_avg_new_cases_per_100k'],
+              'avg_deaths_per_100k_7d': array2[j]['Seven_day_avg_new_deaths_per_100k'],
+              'incidence': array2[j]['incidence'],
 
               // loop over all of array 1
               'population': array1[i]['Census2019'],
