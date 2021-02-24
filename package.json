@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "pages": "node dynamicgen.js"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
