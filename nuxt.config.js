@@ -1,3 +1,5 @@
+var pages = require('./dynamicpages.json');
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -52,5 +54,19 @@ export default {
   },
   pwa: {
     "theme_color": '#1395ba'
+  },
+  generate: {
+    // routes: pages,
+    // fallback: false
+    routes(){
+      return pages.map(state => {
+        let uri = (state.location).toLowerCase()
+        uri = uri.replace(' ', '_');
+        return{
+          route: '/' + uri,
+          payload: state
+        }
+      })
+    }
   }
 }

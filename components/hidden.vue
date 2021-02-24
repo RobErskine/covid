@@ -1,6 +1,6 @@
 <template>
   <span class="visually-hidden">
-    {{hidden}}
+    <slot></slot>
   </span>
 </template>
 
@@ -12,15 +12,12 @@
     overflow: hidden;
     position: absolute;
     white-space: nowrap; 
-width: 1px;
+    width: 1px;
   }
 </style>
 
 <script>
 export default {
-  name: "VisuallyHidden",
-  props: [
-    'hidden'
-  ]
+  name: "visuallyHidden",
 }
 </script>
