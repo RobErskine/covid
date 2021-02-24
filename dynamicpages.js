@@ -11,7 +11,7 @@ fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/states', {
     for(i = 0; i < result.data.length; i++ ){
         entries.push(result.data[i]);
     }
-    fs.writeFile('./dynamicPages.json', JSON.stringify(entries), err => {
+    fs.writeFile('./dynamicpages.json', JSON.stringify(entries), err => {
         if (err) {
             console.error('Error writing dynamic pages file', err);
         } else {
