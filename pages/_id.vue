@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero :data="state" :shortname="state.name" :longname="state.location"/>
+    <hero class="container max-w-screen-2xl mx-auto" :data="state" :shortname="state.name" :longname="state.location"/>
   </div>
 </template>
 

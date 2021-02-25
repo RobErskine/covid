@@ -16,11 +16,13 @@
   },
   "devDependencies": {
     "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/tailwindcss": "^3.4.2",
     "array-sort": "^1.0.0",
     "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
     "query-string": "^6.13.8",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "vue-cookie": "^1.1.4"
   }
 }

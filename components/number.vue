@@ -3,7 +3,7 @@
 </template>
 
 <style scoped>
-  span span.number{
+  .row span.number{
     font-size:0.8em;
   }
 </style>

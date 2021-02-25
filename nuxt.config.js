@@ -43,7 +43,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -61,12 +62,15 @@ export default {
     routes(){
       return pages.map(state => {
         let uri = (state.location).toLowerCase()
-        uri = uri.replace(' ', '_');
+        uri = uri.replace(/ /g, '_');
         return{
           route: '/' + uri,
           payload: state
         }
       })
     }
+  },
+  sitemap: {
+    hostname: 'https://covidcasesbythenumbers.com'
   }
 }
