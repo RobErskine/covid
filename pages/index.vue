@@ -1,13 +1,13 @@
 <template>
   <div class="p-2 m-auto">
     <hero class="container max-w-screen-2xl mx-auto" :data="usa.data" shortname="the U.S." longname="the United States">
-      <p class="text-gray-DEFAULT text-sm mb-0">This website is for informational purposes only. It depends on external data sources from the Centers for Disease control and does not represent medical advice.</p>
+      <p class="text-gray-DEFAULT text-sm mb-0">This website is for informational purposes only. It relies on external data sources from the Centers for Disease control and does not represent medical advice.</p>
     </hero>
     <nav class="flex flex-wrap items-center justify-content">
       <div class="flex justify-between w-full mt-2 lg:w-1/2">
-        <div class="flex items-center ">
-          <label class="ml-2" for="sortby">Sort</label>
-          <select id="sortby" value="sortby" @change="orderBy($event.target.value, order)" v-model="sortby" class="border-2 border-gray-light rounded-xl p-2 pr-4 ml-2 outline-none ring-0 lg:mr-2">
+        <div class="flex items-center flex-wrap justify-between md:justify-start">
+          <label class="block md:inline-block w-full md:w-auto md:mr-2" for="sortby">Sort</label>
+          <select id="sortby" value="sortby" @change="orderBy($event.target.value, order)" v-model="sortby" class="border-2 border-gray-light rounded-xl p-2 pr-4outline-none ring-0 lg:mr-2">
             <option value="location">State/Territory</option>
             <option value="population">Population</option>
             <option value="total_cases">Total Cases</option>
@@ -18,8 +18,8 @@
             <option value="doses_distributed">Doses distributed</option>
             <option value="doses_administered">Doses administered</option>
             <option value="doses_storage">Doses in storage</option>
-            <option value="dose1_population_pct">1st Dose Administered %</option>
-            <option value="dose2_population_pct">2nd Dose Administered %</option>
+            <option value="dose1_population_pct">1st Dose Administered%</option>
+            <option value="dose2_population_pct">2nd Dose Administered%</option>
             <option value="dose2">Population Vaccinated</option>
           </select>
           <!-- todo: come back to add in sort asc/desc -->

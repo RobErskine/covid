@@ -1,5 +1,5 @@
 <template>
-  <span class="number font-serif">{{prettyVal}}<span v-if="percentage">%</span></span>  
+  <span class="number font-serif">{{prettyVal}}<template v-if="percentage">%</template></span>  
 </template>
 
 <style scoped>

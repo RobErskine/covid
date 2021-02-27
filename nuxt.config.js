@@ -44,9 +44,12 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/gtm'
   ],
-
+  gtm: {
+    id: 'GTM-W776RZK'
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
@@ -63,14 +66,23 @@ export default {
       return pages.map(state => {
         let uri = (state.location).toLowerCase()
         uri = uri.replace(/ /g, '_');
-        return{
+        return[
+          {
           route: '/' + uri,
           payload: state
-        }
+          },
+          {
+            route: '/social-image/' + uri,
+            payload: state
+          }
+        ]
       })
     }
   },
   sitemap: {
-    hostname: 'https://covidcasesbythenumbers.com'
+    hostname: 'https://covidcasesbythenumbers.com',
+    exclude: [
+      '/social-image/**'
+    ]
   }
 }

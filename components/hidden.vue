@@ -18,6 +18,6 @@
 
 <script>
 export default {
-  name: "visuallyHidden",
+  name: "visually-hidden",
 }
 </script>

@@ -13,6 +13,6 @@
 
 <script>
 export default {
-  name: "MainFooter"
+  name: "main-footer"
 }
 </script>

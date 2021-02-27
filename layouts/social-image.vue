@@ -1,8 +1,6 @@
 <template>
   <main>
-    <Header/>
-      <Nuxt />
-    <Footer/>
+    <Nuxt />
   </main>
 </template>
 
@@ -27,7 +25,7 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-}627
+}
 
 
 1

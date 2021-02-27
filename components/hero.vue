@@ -16,19 +16,19 @@
 
       <div class="p-4 rounded-2xl md:p-8 br-4 bg-gray-lightest scale-95 w-full lg:w-1/3 flex flex-wrap">
         <h2 class="text-xl lg:text-3xl w-full">{{data.location}} <br class="hidden lg:block" />COVID-19 Data</h2>
-        <row topic="basic" class="mb-0 pb-4 border-gray-light border-b-2 w-full self-center">
+        <row topic="basic" class="mb-4 pb-4 md:mb-0 border-gray-light border-b-2 w-full self-center">
           <item v-if="data.population" sortKey="" label="Population" :value="data.population" />
           <item v-if="data.total_cases" sortKey="" label="Total Cases" :value="data.total_cases"/>
           <item v-if="data.population_infected_pct" sortKey="" label="Cases / Population" :value="data.population_infected_pct" percentage="true"/>
         </row>
 
-        <row topic="last7" class="mb-0 border-gray-light-border-b-2 w-full self-center">
+        <row topic="last7" class="border-gray-light-border-b-2 w-full self-center">
           <item v-if="data.cases_last_7d" sortKey="" label="New Cases Last 24 hours" :value="data.cases_last_7d"/>
           <item v-if="data.deaths_new_7d" sortKey="" label="Deaths Last Week" :value="data.deaths_new_7d"/>
           <item v-if="data.deaths_new_24h" sortKey="" label="Deaths Last Day" :value="data.deaths_new_24h"/>
         </row>
 
-        <row topic="Deaths" v-if="(data.deaths_total || data.deaths_per_100k || data.deaths_new_7d)" class="mb-2 pb-4 border-gray-light border-b-2 w-full self-center">
+        <row topic="Deaths" v-if="(data.deaths_total || data.deaths_per_100k || data.deaths_new_7d)" class="mb-4 pb-4 md:mb-0 border-gray-light border-b-2 w-full self-center">
           <item v-if="data.deaths_total" sortKey="" label="Total Deaths" :value="data.deaths_total" />
           <item v-if="data.deaths_per_100k" sortKey="" label="Deaths/100k" :value="data.deaths_per_100k"/>
           <item v-if="data.incidence" sortKey="" label="Incidence" :value="data.incidence"/>

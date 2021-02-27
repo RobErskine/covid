@@ -32,7 +32,7 @@ button.active span{
 }
 
 button:focus{
-  @apply outline-none;
+  @apply outline-none border-gray-dark;
 }
 </style>
 
