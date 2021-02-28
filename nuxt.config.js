@@ -61,20 +61,25 @@ export default {
   },
   generate: {
     routes(){
-      return pages.map(state => {
+      let states = pages.map(state => {
         let uri = (state.location).toLowerCase()
-        uri = uri.replace(/ /g, '_');
-        return[
-          {
-            route: '/social-image/' + uri,
-            payload: state
-          },
-          {
-            route:  uri,
-            payload: state
-          }
-        ]
-      })
+            uri = uri.replace(/ /g, '_');
+        return{
+          route: '/social-image/' + uri,
+          payload: state
+        }
+      });
+      let images = pages.map(state => {
+        let uri = (state.location).toLowerCase()
+            uri = uri.replace(/ /g, '_');
+        return{
+          route: '/' + uri,
+          payload: state
+        }
+      });
+      return Promise.all([states,images]).then(values => {
+        return [...values[0], ...values[1]]
+      })  
     }
   },
   sitemap: {
