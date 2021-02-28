@@ -1,8 +1,8 @@
 <template>
   <div>
     <section class="w-full transform mb-0 mt-2 flex flex-wrap">
-      <div class="p-2 lg:p-4 lg:pt-6 w-full lg:w-2/3 lg:pr-16">
-        <h1 class="text-2xl lg:text-5xl leading-none">How many people in {{shortname}} have tested positive or been vaccinated against COVID-19?</h1>
+      <div class="p-2 lg:p-4 lg:pt-6 w-full lg:w-2/3 lg:pr-12">
+        <h1 class="text-2xl lg:text-5xl leading-none">How many people in {{longname}} have tested positive or been vaccinated against COVID-19?</h1>
         <p class="text-lg lg:text-2xl leading-snug">Of the <strong><number :val=data.population /></strong> people who live in {{longname}}, <strong><number :val=data.total_cases /> have tested positive</strong> for COVID-19, or <number :val=data.population_infected_pct percentage=true /> of the population.</p>
 
         <p class="text-lg lg:text-2xl leading-snug">In the last week, there have been <number :val=data.cases_last_7d /> new cases and <number :val=data.deaths_new_7d /> deaths. <span v-if=data.cases_last_24h>In the last day, there have been <strong><number :val=data.cases_last_24h /> new cases </strong> and <strong><number :val=data.deaths_new_24h /> new deaths</strong>, <span v-if="this.trending">which thankfully, is <strong>trending downwards</strong> based on the last 7 days of data</span><span v-else>which unfortunately, is <strong>trending upwards</strong> based on the last 7 days of data</span>.</span></p>
