@@ -1,7 +1,7 @@
 <template>
   <div class="p-2 m-auto">
     <hero class="container max-w-screen-2xl mx-auto" :data="usa.data" shortname="the U.S." longname="the United States">
-      <p class="text-gray-DEFAULT text-sm mb-0">This website is for informational purposes only. It relies on external data sources from the Centers for Disease control and does not represent medical advice.</p>
+      <p class="text-gray-DEFAULT text-sm mb-0">This website is for informational purposes only. It relies on external data sources from the Centers for Disease control and does not represent medical advice. Data and information relevant to each state and territory is included below.</p>
     </hero>
     <nav class="flex flex-wrap items-center justify-content">
       <div class="flex justify-between w-full mt-2 lg:w-1/2">
@@ -57,7 +57,7 @@
           <hr>
           <item v-if="data.dose1_population_pct" label="1st Dose%" sortKey="dose1_population_pct" :value="data.dose1_population_pct" percentage="true"/>
           <item v-if="data.dose2_population_pct" label="2nd Dose%" sortKey="dose2_population_pct" :value="data.dose2_population_pct" percentage="true"/>
-        <item v-if="data.dose2" label="Fully Vaccinated" sortKey="dose2" :value="data.dose2" />
+          <item v-if="data.dose2" label="Fully Vaccinated" sortKey="dose2" :value="data.dose2" />
         </row>
       </li>
     </ul>

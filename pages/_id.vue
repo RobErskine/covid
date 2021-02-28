@@ -1,15 +1,25 @@
 <template>
   <div>
-    <hero class="container max-w-screen-2xl mx-auto" :data="state" :shortname="state.name" :longname="state.location"/>
+    <hero class="container max-w-screen-2xl mx-auto" :data="state" :shortname="state.name" :longname="state.location">
+      <p class="text-gray-DEFAULT text-sm mb-0">This website is for informational purposes only. It relies on external data sources from the Centers for Disease control and does not represent medical advice.</p>
+    </hero>``
   </div>
 </template>
 
 <script>
 export default {
-  name: 'detailPage',
+  name: 'detail-page',
+  layout: 'default',
   data: [
-    'state'
+    'state',
+    'state_uri'
   ],
+  mounted(){
+    let uri = (this.state.location).toLowerCase()
+        uri = uri.replace(/ /g, '_');
+
+    this.state_uri = uri;
+  },
   async asyncData ({ params, error, payload }) {
     if (payload) return { state: payload }
     else return { state: // else load in test data
@@ -43,8 +53,20 @@ export default {
     }
   },
   head() {
+    let uri = (this.state.location).toLowerCase().replace(/ /g, '_'),
+        title = this.state.location + ' COVID-19 Information | COVID Cases by the Numbers',
+        description = this.state.location + ' COVID-19 Stats: Total Population' + this.state.population + ', Total Deaths: ' + this.state.deaths_total + ', Total Vaccinations: ' + this.state.dose2,
+        image = 'https://covidcasesbythenumbers.com/img/' + uri + '.png';
     return{
-      title: this.state.location + ' CDC Info'
+      title: title,
+      metadata: [
+        {hid: 'description', name: 'description', content: description },
+        {hid: 'og:title', name: 'og:title', content: title},
+        {hid: 'twitter:title', name: 'twitter:title', content: title},
+        {hid: 'og:description', name: 'og:description', content: description},
+        {hid: 'og:image', name: 'og:image', content: image},
+        {hid: 'twitter:image', name: 'og:image', content: image }
+      ]
     }
   }
 }

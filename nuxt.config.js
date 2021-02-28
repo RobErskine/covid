@@ -1,4 +1,4 @@
-var pages = require('./dynamicpages.json');
+const pages = require('./dynamicpages.json');
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -60,22 +60,14 @@ export default {
     "theme_color": '#1395ba'
   },
   generate: {
-    // routes: pages,
-    // fallback: false
     routes(){
       return pages.map(state => {
         let uri = (state.location).toLowerCase()
         uri = uri.replace(/ /g, '_');
-        return[
-          {
-          route: '/' + uri,
-          payload: state
-          },
-          {
+        return{
             route: '/social-image/' + uri,
             payload: state
-          }
-        ]
+        }
       })
     }
   },

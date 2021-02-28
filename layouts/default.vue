@@ -1,10 +1,16 @@
 <template>
-  <main>
+  <main class="w-full">
     <Header/>
       <Nuxt />
     <Footer/>
   </main>
 </template>
+
+<script>
+export default {
+  name: 'default'
+}
+</script>
 
 <style lang="scss">
 html {
@@ -27,10 +33,7 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-}627
-
-
-1
+}
 
 h1,h2,h3,h4,h5,h6{
   line-height:1.1;
@@ -86,9 +89,8 @@ h5,.h5,h6,.h6{
   }
 }
 
-div.block{
-  max-width:1280px;
-  margin-left:auto;
-  margin-right:auto;
+a.nuxt-link-active{
+  @apply font-bold;
 }
+
 </style>

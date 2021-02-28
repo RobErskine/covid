@@ -1,8 +1,39 @@
 <template>
-  <div>
-    <h1>{{state.name}}</h1>
+  <div class="print flex flex-wrap">
+    <Header />
+    <div class="print-content w-full flex flex-wrap justify-content p-24 px-6 align-center">
+      <h1 class="w-full text-center text-9xl text-primary-DEFAULT">{{state.location}}</h1>
+      <row topic="basic" class="mb-2 border-gray-light border-b-2 w-full text-2xl">
+        <item v-if="state.population" label="Population" sortKey="population" :value="state.population" />
+        <item v-if="state.deaths_total" label="Total Deaths" sortKey="deaths_total" :value="state.deaths_total"/>
+        <item v-if="state.dose2" label="People Vaccinated" sortKey="dose2" :value="state.dose2" percentage=""/>
+      </row>
+    </div>
+    <Footer :updated="state.update" />
   </div>
 </template>
+
+<style lang="scss">
+  .print-content h1{
+    font-size:6rem;
+    font-weight:700;
+  }
+  .print-content div.row{
+    span{
+      font-size:6rem;
+    }
+    span.leading-none{
+      font-size:2rem;
+    }
+    span span{
+      font-size:4rem;
+    }
+  }
+  .print{
+    height:630px;
+    width:1200px;
+  }
+</style>
 
 <script>
 export default {
@@ -11,6 +42,9 @@ export default {
   data: [
     'state'
   ],
+  mounted(){
+    console.log(this.state);
+  },
   async asyncData ({ params, error, payload }) {
     if (payload) return { state: payload }
     else return { state: // else load in test data

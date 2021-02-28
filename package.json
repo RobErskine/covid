@@ -7,7 +7,9 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "pages": "node dynamicpages.js"
+    "pages": "node dynamicpages.js",
+    "socialImages": "node socialimages.js",
+    "removeSocialDir": "rm -rf dist/social-image"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
@@ -20,8 +22,11 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/tailwindcss": "^3.4.2",
     "array-sort": "^1.0.0",
+    "chrome-aws-lambda": "^7.0.0",
     "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
+    "puppeteer": "^8.0.0",
+    "puppeteer-core": "^8.0.0",
     "query-string": "^6.13.8",
     "sass-loader": "^10.1.1",
     "vue-cookie": "^1.1.4"

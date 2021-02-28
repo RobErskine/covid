@@ -1,10 +1,33 @@
 <template>
-  <main>
+  <main class="print-styles">
     <Nuxt />
   </main>
 </template>
 
+<script>
+export default {
+  name:'social-image'
+}
+</script>
+
 <style lang="scss">
+body .print-styles{
+  height:630px;
+  width:1200px;
+  position:relative;
+}
+
+.print-styles header{
+  font-size:30px;
+  div.flex div:last-child{
+    display:none;
+  }
+}
+
+.print-styles footer{
+  font-size:20px;
+}
+
 html {
   font-size: 16px;
   font-family:theme('fonts.sans');
