@@ -3,13 +3,13 @@
     <section class="w-full transform mb-0 mt-2 flex flex-wrap">
       <div class="p-2 lg:p-4 lg:pt-6 w-full lg:w-2/3 lg:pr-16">
         <h1 class="text-2xl lg:text-5xl leading-none">How many people in {{shortname}} have tested positive or been vaccinated against COVID-19?</h1>
-        <p class="text-lg lg:text-2xl">Of the <strong><number :val=data.population /></strong> people who live in {{longname}}, <strong><number :val=data.total_cases /> have tested positive</strong> for COVID-19, or <number :val=data.population_infected_pct percentage=true /> of the population.</p>
+        <p class="text-lg lg:text-2xl leading-snug">Of the <strong><number :val=data.population /></strong> people who live in {{longname}}, <strong><number :val=data.total_cases /> have tested positive</strong> for COVID-19, or <number :val=data.population_infected_pct percentage=true /> of the population.</p>
 
-        <p class="text-lg lg:text-2xl">In the last week, there have been <number :val=data.cases_last_7d /> new cases and <number :val=data.deaths_new_7d /> deaths. <span v-if=data.cases_last_24h>In the last day, there have been <strong><number :val=data.cases_last_24h /> new cases </strong> and <strong><number :val=data.deaths_new_24h /> new deaths</strong>, <span v-if="this.trending">which thankfully, is <strong>trending downwards</strong> based on the last 7 days of data</span><span v-else>which unfortunately, is <strong>trending upwards</strong> based on the last 7 days of data</span>.</span></p>
+        <p class="text-lg lg:text-2xl leading-snug">In the last week, there have been <number :val=data.cases_last_7d /> new cases and <number :val=data.deaths_new_7d /> deaths. <span v-if=data.cases_last_24h>In the last day, there have been <strong><number :val=data.cases_last_24h /> new cases </strong> and <strong><number :val=data.deaths_new_24h /> new deaths</strong>, <span v-if="this.trending">which thankfully, is <strong>trending downwards</strong> based on the last 7 days of data</span><span v-else>which unfortunately, is <strong>trending upwards</strong> based on the last 7 days of data</span>.</span></p>
 
-        <p class="text-lg lg:text-2xl">But there is some good news; <strong><number :val="data.doses_distributed" /> vaccines have been distributed</strong>, and already <strong><number :val="data.doses_administered" /> of them have been administered</strong>, with <number :val="data.doses_storage" /> vaccines still in storage.</p>
+        <p class="text-lg lg:text-2xl leading-snug">But there is some good news; <strong><number :val="data.doses_distributed" /> vaccines have been distributed</strong>, and already <strong><number :val="data.doses_administered" /> of them have been administered</strong>, with <number :val="data.doses_storage" /> vaccines still in storage.</p>
 
-        <p class="text-lg lg:text-2xl">Of those doses administered, <number :val="data.dose1_population_pct" percentage="true"/> received the 1st dose, and <number :val="data.dose2_population_pct" percentage="true"/> received the 2nd dose, which means <strong><number :val="data.dose2"/> people in {{longname}} have been vaccinated.</strong></p>
+        <p class="text-lg lg:text-2xl leading-snug">Of those doses administered, <number :val="data.dose1_population_pct" percentage="true"/> received the 1st dose, and <number :val="data.dose2_population_pct" percentage="true"/> received the 2nd dose, which means <strong><number :val="data.dose2"/> people in {{longname}} have been vaccinated.</strong></p>
       
         <slot></slot>
       </div>
