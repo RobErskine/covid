@@ -3,12 +3,14 @@ const pages = require('./dynamicPages.json');
 const fs = require("fs");
 const path = require("path");
 
-const start = async function(){
+(async function() {
+  const executablePath = await chromium.executablePath
+
   const browser = await chromium.puppeteer.launch({
       //args: chromium.args,
-      args: ['--no-sandbox'],
-      executablePath: await chromium.executablePath,
-      headless: chromium.headless,
+      args: await chromium.args,
+      executablePath: executablePath,
+      headless: true,
   });
 
   let dimensions = {
@@ -52,6 +54,4 @@ const start = async function(){
   }
 
   await browser.close();
-}
-
-start();
+})().catch(console.error)
