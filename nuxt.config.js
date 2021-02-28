@@ -64,10 +64,16 @@ export default {
       return pages.map(state => {
         let uri = (state.location).toLowerCase()
         uri = uri.replace(/ /g, '_');
-        return{
+        return[
+          {
             route: '/social-image/' + uri,
             payload: state
-        }
+          },
+          {
+            route:  uri,
+            payload: state
+          }
+        ]
       })
     }
   },
