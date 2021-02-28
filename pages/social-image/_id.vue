@@ -24,6 +24,7 @@
     }
     span.leading-none{
       font-size:2rem;
+      margin-bottom:-1rem;
     }
     span span{
       font-size:4rem;
