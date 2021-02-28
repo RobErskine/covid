@@ -59,7 +59,7 @@ export default {
         image = 'https://covidcasesbythenumbers.com/img/' + uri + '.png';
     return{
       title: title,
-      metadata: [
+      meta: [
         {hid: 'description', name: 'description', content: description },
         {hid: 'og:title', name: 'og:title', content: title},
         {hid: 'twitter:title', name: 'twitter:title', content: title},
