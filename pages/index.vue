@@ -136,9 +136,9 @@ export default {
     let description = this.stripTags('Here is a demo title') //todo: set a real description
     description = this.trim(description, 152, true);
     return{
-      title: 'COVID Dashboard | Rob Erskine', // todo: set a real title
+      title: 'COVID-19 Cases by the Numbers Dashboard', 
       meta: [
-        {hid: 'og:title', name: 'og:title', content: this.title + ' | Rob Erskine'},
+        {hid: 'og:title', name: 'og:title', content: this.title + ' | COVID-19 Cases by the Numbers'},
         {hid: 'twitter:title', name :'twitter:title', content: this.title},
         {hid: 'description', name :'description', content: description},
         {hid: 'og:description', name :'og:description', content: description},

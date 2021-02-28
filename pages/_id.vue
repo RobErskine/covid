@@ -60,7 +60,7 @@ export default {
     return{
       title: title,
       meta: [
-        {hid: 'twitter:card', name: 'twitter:card', content: 'summary'},
+        {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
         {hid: 'description', name: 'description', content: description },
         {hid: 'og:title', name: 'og:title', content: title},
         {hid: 'twitter:title', name: 'twitter:title', content: title},
