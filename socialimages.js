@@ -23,7 +23,7 @@ const start = async function(){
     let uri = (state.location).toLowerCase();
         uri = uri.replace(/ /g, '_');
 
-    let host = 'http://localhost:3000'; // todo swap this out for real api endpoint //todo replace with .env
+    let host = 'https://covidcasesbythenumbers.com/';  //todo replace with .env
 
     const page = await browser.newPage();
 
