@@ -28,7 +28,7 @@
 
 <style lang="scss">
 button.active span{
-  @apply bg-green-600 text-white;
+  @apply bg-green-700 text-white;
 }
 
 button:focus{
