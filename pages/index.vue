@@ -3,7 +3,7 @@
     <hero class="container max-w-screen-2xl mx-auto" :data="usa.data" shortname="the U.S." longname="the United States">
       <p class="text-gray-DEFAULT text-sm mb-0">This website is for informational purposes only. It relies on external data sources from the Centers for Disease control and does not represent medical advice. Data and information relevant to each state and territory is included below.</p>
     </hero>
-    <nav class="flex flex-wrap items-center justify-content">
+    <nav class="flex flex-wrap items-center justify-content px-2">
       <div class="flex justify-between w-full mt-2 lg:w-1/2">
         <div class="flex items-center flex-wrap justify-between md:justify-start">
           <label class="block md:inline-block w-full md:w-auto md:mr-2" for="sortby">Sort</label>
@@ -11,7 +11,7 @@
             <option value="location">State/Territory</option>
             <option value="population">Population</option>
             <option value="total_cases">Total Cases</option>
-            <option value="population_infected_pct">Cases / Population</option>
+            <option value="population_infected_pct">Cases/Population</option>
             <option value="deaths_total">Deaths</option>
             <option value="deaths_per_100k">Deaths per 100k</option>
             <option value="deaths_new_7d">Deaths in the last week</option>
@@ -133,17 +133,21 @@ export default {
     this.orderBy('location', this.order);
   },
   head(){
-    let description = this.stripTags('Here is a demo title') //todo: set a real description
-    description = this.trim(description, 152, true);
+    let usa = this.usa.data;
+    let uri = 'united_states',
+        title = usa.location + ' COVID-19 Information | COVID Cases by the Numbers',
+        description = usa.location + ' COVID-19 Stats: Total Population: ' + usa.population + ', Total Deaths: ' + usa.deaths_total + ', Total Vaccinations: ' + usa.dose2,
+        image = 'https://covidcasesbythenumbers.com/img/' + uri + '.png';
     return{
-      title: 'COVID-19 Cases by the Numbers Dashboard', 
+      title: title,
       meta: [
-        {hid: 'og:title', name: 'og:title', content: this.title + ' | COVID-19 Cases by the Numbers'},
-        {hid: 'twitter:title', name :'twitter:title', content: this.title},
-        {hid: 'description', name :'description', content: description},
-        {hid: 'og:description', name :'og:description', content: description},
-        {hid: 'og:image', name :'og:image', content: this.image},
-        {hid: 'twitter:image', name :'twitter:image', content: this.image}
+        {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
+        {hid: 'description', name: 'description', content: description },
+        {hid: 'og:title', name: 'og:title', content: title},
+        {hid: 'twitter:title', name: 'twitter:title', content: title},
+        {hid: 'og:description', name: 'og:description', content: description},
+        {hid: 'og:image', name: 'og:image', content: image},
+        {hid: 'twitter:image', name: 'og:image', content: image }
       ]
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="row flex flex-wrap justify-between" :class="topic">
+  <div class="row flex flex-wrap justify-between items-center" :class="topic">
     <slot></slot>
   </div>
 </template>

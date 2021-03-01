@@ -2,12 +2,6 @@
   <span class="number font-serif">{{prettyVal}}<template v-if="percentage">%</template></span>  
 </template>
 
-<style scoped>
-  .row span.number{
-    font-size:0.8em;
-  }
-</style>
-
 <script>
 export default {
   name: 'number',

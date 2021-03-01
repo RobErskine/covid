@@ -63,12 +63,16 @@ export default {
   },
   methods: {
     getTrending() {
-      let lastDay = this.data.deaths_new_24h;
-      if((this.data.deaths_new_7d / 7) > lastDay) {
-        return true;
-      }
-      else{
-        return false;
+      if(this.data.deaths_new_24h){
+        let lastDay = this.data.deaths_new_24h;
+        if((this.data.deaths_new_7d / 7) > lastDay) {
+          return true;
+        }
+        else{
+          return false;
+        }
+      } else {
+        return
       }
     }
   },
