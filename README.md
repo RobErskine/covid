@@ -1,4 +1,6 @@
-# CDC Test
+# CDC API Informational Site
+
+The goal of this site is to create a COVID-19 dashboard from the CDC API.
 
 ## Build Setup
 
@@ -15,6 +17,12 @@ $ npm run dev
 # build for production and launch server
 $ npm run build
 $ npm run start
+
+# generate pages
+npm run pages
+
+# generate social images
+npm run socialImages
 
 # generate static project
 $ npm run generate
