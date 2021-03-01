@@ -3,7 +3,7 @@
     <div class="flex justify-end items-center">
       <nuxt-link v-if="! updated" class="mr-4" to="/about">About</nuxt-link>
       <nuxt-link v-if="! updated" class="mr-4" to="/privacy">Privacy Policy</nuxt-link>
-      <a class="text-white"><template v-if="updated">Last updated: {{updated}} — </template> &copy; {{new Date().getFullYear()}} <template v-if="! updated">All Rights Reserved.</template></a>
+      <template v-if="updated">Last updated: {{updated}} — </template> &copy; {{new Date().getFullYear()}} <template v-if="! updated">All Rights Reserved.</template>
     </div>
   </footer>
 </template>
