@@ -65,7 +65,8 @@
 </template>
 
 <script>
-var arraySort = require('array-sort');
+import utilities from '~/assets/js/utilities'
+var arraySort = require('array-sort')
 
 export default {
   name: "Homepage",
@@ -135,7 +136,7 @@ export default {
     let usa = this.usa.data;
     let uri = 'united_states',
         title = usa.location + ' COVID-19 Information | COVID Cases by the Numbers',
-        description = usa.location + ' COVID-19 Stats: Total Population: ' + usa.population + ', Total Deaths: ' + usa.deaths_total + ', Total Vaccinations: ' + usa.dose2,
+        description = usa.location + ' COVID-19 Stats: Total Population: ' + utilities.numberWithCommas(usa.population) + ', Total Deaths: ' + utilities.numberWithCommas(usa.deaths_total) + ', and Total Vaccinations: ' + utilities.numberWithCommas(usa.dose2),
         image = 'https://covidcasesbythenumbers.com/img/' + uri + '.png';
     return{
       title: title,

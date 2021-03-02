@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import utilities from '~/assets/js/utilities'
+
 export default {
   name: 'number',
   data() {
@@ -15,14 +17,7 @@ export default {
     'percentage': false
   },
   mounted() {
-    this.prettyVal = this.numberWithCommas(this.val)
-  },
-  methods: {
-    numberWithCommas(x) {
-      var parts = x.toString().split(".");
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return parts.join(".");
-    }
+    this.prettyVal = utilities.numberWithCommas(this.val)
   }
 }
 </script>

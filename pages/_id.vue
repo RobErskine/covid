@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import utilities from '~/assets/js/utilities'
+
 export default {
   name: 'detail-page',
   layout: 'default',
@@ -55,7 +57,7 @@ export default {
   head() {
     let uri = (this.state.location).toLowerCase().replace(/ /g, '_'),
         title = this.state.location + ' COVID-19 Information | COVID Cases by the Numbers',
-        description = this.state.location + ' COVID-19 Stats: Total Population: ' + this.state.population + ', Total Deaths: ' + this.state.deaths_total + ', Total Vaccinations: ' + this.state.dose2,
+        description = this.state.location + ' COVID-19 Stats: Total Population: ' + utilities.numberWithCommas(this.state.population) + ', Total Deaths: ' + utilities.numberWithCommas(this.state.deaths_total) + ', and Total Vaccinations: ' + utilities.numberWithCommas(this.state.dose2),
         image = 'https://covidcasesbythenumbers.com/img/' + uri + '.png';
     return{
       title: title,
