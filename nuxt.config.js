@@ -84,6 +84,10 @@ export default {
   },
   sitemap: {
     hostname: 'https://covidcasesbythenumbers.com',
+    defaults: {
+      changefreq: 'daily',
+      lastmod: new Date(),
+    },
     exclude: [
       '/social-image/**'
     ]

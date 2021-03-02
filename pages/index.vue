@@ -35,7 +35,7 @@
       <li v-for="data in states.data" :key="data.location"
         class="p-2 pt-4 lg:pt-3 lg:pb-2 rounded-2xl md:p-4 br-4 bg-gray-lightest w-full mb-0"
       >
-        <h2 class="text-center"><a :href="`/` + (data.location).toLowerCase().replace(/ /g,'_')"><hidden>Learn more about COVID-19 stats for </hidden>{{data.location}}</a></h2>
+        <h2 class="text-center"><nuxt-link :to="`/` + (data.location).toLowerCase().replace(/ /g,'_')"><hidden>Learn more about COVID-19 stats for </hidden>{{data.location}}</nuxt-link></h2>
         <!-- todo: convert each of these <p>s into a component -->
         <!-- total pop --> 
         <row topic="basic" class="mb-2 border-gray-light border-b-2">
@@ -80,7 +80,6 @@ export default {
     }
   },
   async fetch(){
-    // pretend data is from an external source
     this.states = await fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/states',{mode:'no-cors'}).then(res=>res.json())
     this.usa = await fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/usa',{mode:'no-cors'}).then(res=>res.json())
   },
@@ -123,7 +122,7 @@ export default {
 
       return string
     },
-    orderBy(key,order){
+    orderBy(key){
       this.states.data = arraySort(this.states.data, key, {reverse: this.order});
       this.$forceUpdate();
     }
