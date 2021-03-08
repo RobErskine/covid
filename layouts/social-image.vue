@@ -19,7 +19,7 @@ body .print-styles{
 
 .print-styles header{
   font-size:30px;
-  div.flex div:last-child{
+  a:last-child{
     display:none;
   }
 }
