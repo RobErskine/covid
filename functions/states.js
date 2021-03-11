@@ -70,8 +70,8 @@ exports.handler = async (event, context) => {
               'doses_distributed': array1[i]['Doses_Distributed'],
               'doses_administered': array1[i]['Doses_Administered'],
               'doses_storage': (array1[i]['Doses_Distributed'] - array1[i]['Doses_Administered']),
-              'dose1': array1[i]['Administered_Dose1'],
-              'dose2': array1[i]['Administered_Dose2'],
+              'dose1': array1[i]['Administered_Dose1_Recip'],
+              'dose2': array1[i]['Administered_Dose2_Recip'],
               'dose1_population_pct': array1[i]['Administered_Dose1_Pop_Pct'],
               'dose2_population_pct': array1[i]['Administered_Dose2_Pop_Pct'],
               
