@@ -24,7 +24,7 @@
     "@nuxtjs/tailwindcss": "^3.4.2",
     "array-sort": "^1.0.0",
     "chrome-aws-lambda": "^7.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.2.3",
     "node-sass": "^5.0.0",
     "puppeteer": "^8.0.0",
     "puppeteer-core": "^8.0.0",
