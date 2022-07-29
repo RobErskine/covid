@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/states', {
+fetch('covidcasesbythenumbers.netlify.app/.netlify/functions/states', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
 })
@@ -13,7 +13,7 @@ fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/states', {
             entries.push(result.data[i])
         }
 
-        fetch('https://elastic-jennings-901335.netlify.app/.netlify/functions/usa', {
+        fetch('covidcasesbythenumbers.netlify.app/.netlify/functions/usa', {
             method: 'GET',
             headers: {'Content-Type': 'application/json' },
         })

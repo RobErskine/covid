@@ -1,2 +1,5 @@
 [functions."deploy"]
 schedule = "@daily"
+
+[functions]
+directory = "functions/"

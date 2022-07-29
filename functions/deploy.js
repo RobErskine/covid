@@ -10,10 +10,6 @@ const handler = async function(event, context) {
     console.log(stdout);
     });
 
-    dir.on('exit', function (code) {
-        // return value from "npm build"
-    });
-
     return {
         statusCode: 200,
     };
