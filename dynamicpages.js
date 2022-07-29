@@ -21,7 +21,7 @@ fetch('https://covidcasesbythenumbers.netlify.app/.netlify/functions/states', {
             .then(res =>{
                 entries.push(res.data);
 
-                fs.writeFile('./dynamicpages.json', JSON.stringify(entries), err => {
+                fs.writeFile('./dynamicPages.json', JSON.stringify(entries), err => {
                     if (err) {
                         console.error('Error writing dynamic pages file', err);
                     } else {

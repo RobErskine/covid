@@ -1,4 +1,4 @@
-const pages = require('./dynamicpages.json');
+const pages = require('./dynamicPages.json');
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
