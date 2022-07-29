@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@netlify/functions": "^1.0.0",
-    "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.8.3",
     "nuxt": "^2.14.12"
   },
