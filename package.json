@@ -29,7 +29,7 @@
     "node-sass": "^5.0.0",
     "puppeteer": "^8.0.0",
     "puppeteer-core": "^8.0.0",
-    "query-string": "^6.13.8",
+    "query-string": "^7.1.2",
     "sass-loader": "^10.1.1",
     "vue-cookie": "^1.1.4"
   }
