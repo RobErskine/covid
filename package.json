@@ -28,7 +28,7 @@
     "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
     "puppeteer": "^8.0.0",
-    "puppeteer-core": "^8.0.0",
+    "puppeteer-core": "^19.4.0",
     "query-string": "^6.13.8",
     "sass-loader": "^10.1.1",
     "vue-cookie": "^1.1.4"
