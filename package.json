@@ -14,7 +14,7 @@
   "dependencies": {
     "@netlify/functions": "^1.0.0",
     "@nuxtjs/axios": "^5.12.5",
-    "core-js": "^3.8.3",
+    "core-js": "^3.28.0",
     "nuxt": "^2.14.12"
   },
   "devDependencies": {
